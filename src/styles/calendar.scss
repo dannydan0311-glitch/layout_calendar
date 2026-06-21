@@ -5,7 +5,6 @@
   gap: $gap-size;
   padding: $calendar-padding;
   width: 7 * $cell-size + 6 * $gap-size + 2 * $calendar-padding;
-  transition: background-color, transform;
 
   &__day {
     box-sizing: border-box;
@@ -13,11 +12,14 @@
     width: $cell-size;
     border: 1px solid #000;
     background-color: #eee;
+    transition:
+      background-color 0.5s,
+      transform 0.5s;
 
     &:hover {
       cursor: pointer;
-      background-color: $cell-hovered-color 0,5s;
-      transform: $cell-hovered-transform 0.5s;
+      background-color: $cell-hovered-color;
+      transform: $cell-hovered-transform;
     }
   }
 
