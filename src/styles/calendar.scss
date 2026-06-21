@@ -2,9 +2,10 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  gap: 1px;
-  width: 726px; /* 7 cells * 100px + 6 gaps * 1px */
-  padding: 10px;
+  gap: $gap-size;
+  padding: $calendar-padding;
+  width: 7 * $cell-size + 6 * $gap-size + 2 * $calendar-padding;
+  transition: background-color, transform;
 
   &__day {
     box-sizing: border-box;
@@ -12,23 +13,22 @@
     width: $cell-size;
     border: 1px solid #000;
     background-color: #eee;
-    transition: 500ms;
 
     &:hover {
       cursor: pointer;
-      background-color: $cell-hovered-color;
-      transform: translateY(-20px);
+      background-color: $cell-hovered-color 0,5s;
+      transform: $cell-hovered-transform 0.5s;
     }
   }
 
   @for $i from 1 through 31 {
     &__day:nth-child(#{$i})::before {
       content: '#{$i}';
-      font-size: 30px;
-      font-family: Arial, sans-serif;
+      font-size: $calendar-font-size;
+      font-family: $calendar-font-family;
       display: flex;
       justify-content: center;
-      line-height: 98px;
+      line-height: $cell-line-height;
     }
   }
 
